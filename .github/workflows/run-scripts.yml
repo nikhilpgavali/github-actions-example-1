@@ -9,6 +9,8 @@ jobs:
         script1: ${{ steps.script1.outputs.result}}
       runs-on: ubuntu-latest
       steps:
+        - uses: actions/checkout@v3
+
         - name: Give Permission to the shell script
           run: chmod +x .github/common/env.sh
 
@@ -23,7 +25,9 @@ jobs:
       outputs:
         script2: ${{ steps.script2.outputs.result }}
       runs-on: ubuntu-latest
-      steps:        
+      steps:
+        - uses: actions/checkout@v3
+        
         - name: Give Permission to the shell script
           run: chmod +x .github/common/env_1.sh
 
