@@ -4,9 +4,9 @@ name: Run Shell Scripts
 on: [push]
 jobs:
     run-first-script:
-      name: define script one
-      outputs: 
-        script1: ${{ steps.script1.outputs.result}}
+      # name: define script one
+      # outputs: 
+      #   script1: ${{ steps.script1.outputs.result }}
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
@@ -15,23 +15,23 @@ jobs:
           run: chmod +x .github/common/env.sh
 
         - name: Execute script 1
-          id: script1
+          # id: script1
           run: .github/common/env.sh
           shell: bash
 
 
     run-second-script:
-      name: define script two
-      outputs:
-        script2: ${{ steps.script2.outputs.result }}
+      # name: define script two
+      # outputs:
+      #   script2: ${{ steps.script2.outputs.result }}
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
-        
+
         - name: Give Permission to the shell script
           run: chmod +x .github/common/env_1.sh
 
         - name: Execute script 2
-          id: script2
+          # id: script2
           run: .github/common/env_1.sh
           shell: bash
